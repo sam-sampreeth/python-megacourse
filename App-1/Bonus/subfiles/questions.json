@@ -1,0 +1,8 @@
+[
+  {"question":  "What is the chemical symbol for Gold?",
+  "options":  ["Au", "Ag", "Mn", "C"],
+  "correct_ans":  1},
+  {"question":  "How many teeth does an adult human have?",
+  "options":  [28, 32, 33, 15],
+  "correct_ans":  2}
+]
