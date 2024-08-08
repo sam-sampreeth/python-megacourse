@@ -12,3 +12,8 @@ def writeTodos(localTodo, filepath=FILEPATH):
     """ Writes todos to the file todos.txt """
     with open(filepath, 'w') as localFile:
         localFile.writelines(localTodo)
+
+
+if __name__ == "__main__":
+    print("Hello")
+    print(getTodos())
