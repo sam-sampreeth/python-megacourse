@@ -37,4 +37,20 @@ for filepath in filepaths:
         pdf.cell(30, 8, str(row["price_per_unit"]), border=1)
         pdf.cell(30, 8, str(row["total_price"]), border=1, ln=1)
 
+    t_sum = df["total_price"].sum()
+    pdf.set_font("helvetica", size=10)
+    pdf.set_text_color(80, 80, 80)
+    pdf.cell(30, 8, "", border=1)
+    pdf.cell(70, 8, "", border=1)
+    pdf.cell(35, 8, "", border=1)
+    pdf.cell(30, 8, "", border=1)
+    pdf.cell(30, 8, str(t_sum), border=1, ln=1)
+
+    pdf.set_font("helvetica", size=10)
+    pdf.cell(30, 8, f"Total price: Rs. {t_sum}", ln=1)
+
+    pdf.set_font("helvetica", size=10)
+    pdf.cell(30, 8, f"Python How")
+    pdf.image('pythonhow.png', w=10)
+
     pdf.output(f"PDFs/{invNum}.pdf")
