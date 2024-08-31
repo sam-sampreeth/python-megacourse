@@ -14,15 +14,16 @@ def mailer(msg):
         server.sendmail(username, receiver, msg)
 
 api_key = "ff370c0d89aa43f881c8b3405f454cd7"
-url = f"https://newsapi.org/v2/everything?q=apple&from=2024-08-29&to=2024-08-29&sortBy=popularity&apiKey={api_key}"
+
+q = "tesla"
+url = f"https://newsapi.org/v2/everything?q={q}&from=2024-08-29&to=2024-08-29&sortBy=popularity&apiKey={api_key}&language=en"
 reqs = requests.get(url)
 cont = reqs.json()
 
-mailCont = ""
-for article in cont["articles"]:
-    title = article["title"] if article["title"] else "No Title"
-    description = article["description"] if article["description"] else "No Description"
-    mailCont = mailCont + title + "\n" + description + "\n" + "\n"
+mailCont = "Subject: News\n\n"
+for article in cont["articles"][:20]:
+    if article["title"] is not None:
+        mailCont += article["title"] + "\n" + article["description"] + "\n" + article["url"] + 2*"\n"
 
 mailCont = mailCont.encode("utf-8")
 mailer(mailCont)
