@@ -1,6 +1,9 @@
 from datetime import datetime
 import requests
 import selectorlib
+import sqlite3
+
+connection = sqlite3.connect('data1.db')
 
 URL = "https://programmer100.pythonanywhere.com/"
 HEADERS = {
@@ -19,9 +22,9 @@ def extract(src):
 
 def store(extracted):
     now = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
-    with open("data1.txt", "a") as file:
-        line = f"{now}, {extracted}\n"
-        file.write(line)
+    cursor = connection.cursor()
+    cursor.execute("INSERT INTO temps VALUES(?, ?)", (now, extracted))
+    connection.commit()
 
 def read(extracted):
     with open("data1.txt", "r") as file:
