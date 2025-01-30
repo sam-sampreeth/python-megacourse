@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1 class="mt-4 mb-4">Job Application Portal</h1>
-        <form>
+        <form method="post">
             <div class="form-group mb-4">
                 <label for="fname">First Name: </label>
                 <input class="form-control" type="text" id="fname" name="fname" required>
@@ -34,13 +34,13 @@
                 <label>Current Occupation</label>
                 <br>
                 <div id="selections" class="btn-group-horizontal">
-                    <input class="btn-check form-control" type="radio" id="employed" name="selections" required>
+                    <input class="btn-check form-control" type="radio" id="employed" name="selections" value="employed" required>
                     <label class="btn btn-outline-secondary" for="employed">Employed</label>
-                    <input class="btn-check form-control" type="radio" id="unemployed" name="selections" required>
+                    <input class="btn-check form-control" type="radio" id="unemployed" name="selections" value="unemployed" required>
                     <label class="btn btn-outline-secondary" for="unemployed">Unemployed</label>
-                    <input class="btn-check form-control" type="radio" id="student" name="selections" required>
+                    <input class="btn-check form-control" type="radio" id="student" name="selections" value="student" required>
                     <label class="btn btn-outline-secondary" for="student">Student</label>
-                    <input class="btn-check form-control" type="radio" id="self" name="selections" required>
+                    <input class="btn-check form-control" type="radio" id="self" name="selections" value="self-employed" required>
                     <label class="btn btn-outline-secondary" for="self">Self-Employed</label>
                 </div>
             </div>
